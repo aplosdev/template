@@ -20,7 +20,7 @@ npm install
 * **To start your development server run:**
 
 ```bash
-npm run docs:dev
+npm run pages:dev
 ```
 
 With that, you can go on to open your newly cloned `git` repo in your favorite IDE/Code Editor and open the `/pages/`, then `/.vitepress/` and you will see `config.mts`, that's where you will edit the following:
@@ -147,3 +147,7 @@ Once you've done all that, you are ready to edit you're files, you can create pa
 
 ## Deploy
 To deploy you will have to follow the guide made by Vitepress: [vitepress.dev/guide/deploy](https://vitepress.dev/guide/deploy)
+
+Or click the button below for Vercel:
+
+[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/GabsEdits/aplos)
