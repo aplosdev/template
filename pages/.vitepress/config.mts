@@ -10,16 +10,19 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
 
-  themeConfig: { // Main Theme
-    author: "You", // Your name
-    nav: { // Navigation
-      links: [ 
+  themeConfig: { // Main Theme Config
+    author: "Your Name", // Change this to your name
+    colorScheme: {
+      accent: "#c1b134", // Change this to your accent color (Doesn't work currently, will be fixed in the future. For now, just change the color in the custom.scss file)
+    },
+    nav: {
+      links: [
         { text: "Guide", link: "https://aplos.gxbs.me/guide/" },
         { text: "Demo", link: "/demo" },
         // To add more links, just add more objects to the array, with the text and link like so:
         // { text: "Text (The text for the link)", link: "Link" },
       ],
-      git: "https://github.com/GabsEdits/aplos-template", // Link to the source code of your site
+      git: "https://github.com/GabsEdits/aplos-template", // Link to the source code of your site, if your site isn't open source, you can remove this
     },
     footer: {
       // To disable any of these, just set them to false, to enable them, set them to true
@@ -29,29 +32,32 @@ export default defineConfig({
       // To change the text of any of these, just change the text in the quotes, if you want to disable it entirely, set show to false
       madeby: {
         show: true,
-        name: "You",
-        link: "#",
+        name: "Your Name",
+        link: "https://yourwebsite.com",
       },
     },
   },
+
   markdown: {
-    container: { // The markdown cards
+    container: {
       warningLabel: "⚠ Warning",
       tipLabel: "Tip",
       dangerLabel: "⚠ Danger",
       infoLabel: "Info",
     },
   },
-  head: [ // The head of the page, this is where you put your meta tags
+  head: [
+    ["meta", { name: "author", content: "Your Name" }], // Change this to your name
     ["link", { rel: "icon", href: "/favicon.ico" }],
+    ["meta", { name: "theme-color", content: "#ff3e00" }], // Your theme color
     ["meta", { name: "og:type", content: "website" }],
     ["meta", { name: "og:locale", content: "en" }],
-    ["meta", { name: "og:site_name", content: "Template" }],
+    ["meta", { name: "og:site_name", content: "Template" }], // Change this to your site name
     [
       "meta",
       {
         name: "og:image",
-        content: "https://aplos.gxbs.me/images/aplos-banner.jpg",
+        content: "https://aplos.gxbs.me/images/aplos-banner.jpg", // Change this to your image
       },
     ],
     ["meta", { name: "twitter:card", content: "summary_large_image" }],
@@ -59,23 +65,20 @@ export default defineConfig({
       "meta",
       {
         name: "twitter:image",
-        content: "https://aplos.gxbs.me/images/aplos-banner.jpg",
+        content: "https://aplos.gxbs.me/images/aplos-banner.jpg", // Change this to your image
       },
     ],
-    ["meta", { name: "twitter:title", content: "Aplós" }],
+    ["meta", { name: "twitter:title", content: "Aplós Template" }], // Change this to your title
     [
       "meta",
       {
         name: "twitter:description",
-        content: "Aplós is a cool template for vitepress",
+        content: "Build an website fast, and easy", // Change this to your description
       },
     ],
-    [
-      "meta",
-      { name: "twitter:url", content: "https://template.aplos.gxbs.me" },
-    ],
+    ["meta", { name: "twitter:url", content: "https://aplos.gxbs.me" }], // Change this to your domain
   ],
-  sitemap: { // The sitemap, for SEO
-    hostname: "https://template.aplos.gxbs.me", // The hostname (domain) of your site
+  sitemap: { // Change this to your domain
+    hostname: "https://template.aplos.gxbs.me",
   },
 });
