@@ -1,11 +1,11 @@
-# Aplus Template | Guide
+# Aplós Template | Guide
 
 ## Start
 
 This is a Template Repo, you can click the button and then clone your newly by following commands in your terminal:
 
 ```bash
-git clone https://github.com/*your_username*/aplus
+git clone https://github.com/*your_username*/aplos
 ```
 
 Or you can edit your project on the web using GitHub Codespaces, just in your favorite browser open the this link:\
@@ -106,9 +106,8 @@ export default defineConfig({
 });
 ```
 
-::: info
-The last lines, located at `nav` are the link in the header/navigation island
-:::
+>[!NOTE]
+>The last lines, located at `nav` are the link in the header/navigation island
 
 With that changed, you are ready to go to the next step:
 
