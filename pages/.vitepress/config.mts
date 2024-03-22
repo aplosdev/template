@@ -5,7 +5,7 @@ export default defineConfig({
   lang: "en-US",
   title: "Aplós Template",
   description:
-    "This is a cool template for vitepress, it has a lot of features, and it's easy to use",
+    "This is a cool template for VitePress, it has a lot of features, and it's easy to use",
 
   lastUpdated: true,
   cleanUrls: true,
