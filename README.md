@@ -1,29 +1,50 @@
-# Aplós Template | Guide
+<div align="center">
+<h1>Aplós Template | Guide</h1>
+</div>
 
-## Start
+## Getting Started
 
-This is a Template Repo, you can click the button and then clone your newly by following commands in your terminal:
+This guide will help you get started with the Aplós Template.
+
+### Clone the Template Repo
+
+Clone this template repository by running the following command in your terminal:
 
 ```bash
 git clone https://github.com/*your_username*/aplos
 ```
 
-Or you can edit your project on the web using GitHub Codespaces, just in your favorite browser open the this link:\
-https://codespaces.new/*your_username*/aplos. **Make sure you change your username in the url**
+<details>
+<summary>GitHub Codespaces</summary>
 
-* **To start editing the project run this in your terminal:**
+**Alternatively**, you have the option to edit your project using GitHub Codespaces. Simply open the following link in your preferred web browser:
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=737827959)
+</details>
+
+## Install Dependencies and Start Development Server
+
+Once you've cloned the repository (or opened it in Codespaces), follow these steps:
+
+1. Install Dependencies:
 
 ```bash
 npm install
 ```
 
-* **To start your development server run:**
+2. Start Development Server:
 
 ```bash
 npm run pages:dev
 ```
 
-With that, you can go on to open your newly cloned `git` repo in your favorite IDE/Code Editor and open the `/pages/`, then `/.vitepress/` and you will see `config.mts`, that's where you will edit the following:
+This will start the development server and open your project in your default browser.
+
+## Configuration
+
+The Aplós Template uses a configuration file `(pages/.vitepress/config.mts)` to control various aspects of the website, such as theme, navigation, and SEO.
+
+You can edit this file to customize your website. Here's an example snippet showing some configuration options:
 
 ```ts
 export default defineConfig({
@@ -35,10 +56,12 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
 
-  themeConfig: { // Main Theme
+  themeConfig: {
+    // Main Theme
     author: "You", // Your name
-    nav: { // Navigation
-      links: [ 
+    nav: {
+      // Navigation
+      links: [
         { text: "Guide", link: "https://aplos.gxbs.me/guide/" },
         { text: "Demo", link: "/demo" },
         // To add more links, just add more objects to the array, with the text and link like so:
@@ -59,94 +82,38 @@ export default defineConfig({
       },
     },
   },
-  markdown: {
-    container: { // The markdown cards
-      warningLabel: "⚠ Warning",
-      tipLabel: "Tip",
-      dangerLabel: "⚠ Danger",
-      infoLabel: "Info",
-    },
-  },
-  head: [ // The head of the page, this is where you put your meta tags
-    ["link", { rel: "icon", href: "/favicon.ico" }],
-    ["meta", { name: "og:type", content: "website" }],
-    ["meta", { name: "og:locale", content: "en" }],
-    ["meta", { name: "og:site_name", content: "Template" }],
-    [
-      "meta",
-      {
-        name: "og:image",
-        content: "https://aplos.gxbs.me/images/aplos-banner.jpg",
-      },
-    ],
-    ["meta", { name: "twitter:card", content: "summary_large_image" }],
-    [
-      "meta",
-      {
-        name: "twitter:image",
-        content: "https://aplos.gxbs.me/images/aplos-banner.jpg",
-      },
-    ],
-    ["meta", { name: "twitter:title", content: "Aplós" }],
-    [
-      "meta",
-      {
-        name: "twitter:description",
-        content: "Aplós is a cool template for vitepress",
-      },
-    ],
-    [
-      "meta",
-      { name: "twitter:url", content: "https://template.aplos.gxbs.me" },
-    ],
+  head: [
+    // The head of the page, this is where you put your meta tags
+    // Add what ever you want
   ],
-  sitemap: { // The sitemap, for SEO
+  sitemap: {
+    // The sitemap, for SEO
     hostname: "https://template.aplos.gxbs.me", // The hostname (domain) of your site
   },
 });
 ```
 
->[!NOTE]
->The last lines, located at `nav` are the link in the header/navigation island
+> [!NOTE]
+> Make sure to replace "You" with your actual name in the `author` field.
 
-With that changed, you are ready to go to the next step:
+## Colors
 
-### Colors
+You can change the accent color of your website by editing the `pages/.vitepress/custom.scss` file.\
+The file should look something like this:
 
-You can change the accent color inside `/pages/.vitepress/theme/styles/color.css`, you can change everything there and make it your own! This is how the file should look:
-
-```css
-:root {
-  --color-background: #fdfff5;
-  --color-background-second: #faffe0;
-  --color-header: #fdfff5bd;
-  --color-text: #000;
-
-  --color-accent: #9eb036;
-  --color-text-secondary: #6c6c6c;
-  --color-border: #74747460;
-
-  --base-shadow: 0px 10px 34px 0px rgba(0, 0, 0, 0.15);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #12120e;
-    --color-background-second: #21251b;
-    --color-header: #12120eb5;
-    --color-text: #fff;
-
-    --base-shadow: 0px 10px 34px 0px rgb(0 0 0 / 40%);
-  }
-}
+```scss
+$color-accent: #9eb036;
 ```
 
-## Start Writing!
-Once you've done all that, you are ready to edit you're files, you can create pages in the `pages` folder, and add them to the Navigation Island if you want.
+Change the value of `$color-accent` to your desired color code.
 
-## Deploy
-To deploy you will have to follow the guide made by Vitepress: [vitepress.dev/guide/deploy](https://vitepress.dev/guide/deploy)
+## Creating New Pages
 
-Or click the button below for Vercel:
+New pages can be created inside the `pages` folder. To add a new link to the navigation bar, edit the `nav` section in the `config.mts` file following the existing format.
 
-[![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/GabsEdits/aplos)
+## Deployment
+
+Once you're happy with your website, you can deploy it to a hosting platform. Here are some resources to help you get started:
+
+- Vitepress Deployment Guide: https://vitepress.dev/guide/deploy
+- [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/GabsEdits/aplos)
