@@ -1,14 +1,4 @@
-<div class="table-small">
-
-| Table of Content                        |
-| --------------------------------------- |
-| [Photo & Video](#photo-video)           |
-| [Information boxes](#information-boxes) |
-| [Table](#table)                         |
-| [Small Text](#small-text)               |
-| [Time](#time)                           |
-
-</div>
+[[toc]]
 
 # Header 1
 
