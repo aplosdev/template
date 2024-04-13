@@ -81,4 +81,15 @@ export default defineConfig({
   sitemap: { // Change this to your domain
     hostname: "https://template.aplos.gxbs.me",
   },
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+          $color-accent: #9eb036;
+          `,
+        },
+      },
+    },
+  },
 });

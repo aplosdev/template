@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../node_modules/non.geist/font-faces/mono-var.css"],
+  "sourcesContent": ["@font-face {\n    font-family: 'Geist Mono Variable';\n    src: url('../fonts/mono/GeistMonoVariableVF.woff2') format('woff2');\n    font-weight: 100 900;\n    font-display: swap;\n    font-synthesis: none;\n}"],
+  "mappings": ";AAAA;AACI,eAAa;AACb,OAAK,4GAA+C,OAAO;AAC3D,eAAa,IAAI;AACjB,gBAAc;AACd,kBAAgB;AACpB;",
+  "names": []
+}

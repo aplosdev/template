@@ -6,110 +6,120 @@
 
 This guide will help you get started with the Aplós Template.
 
-### Clone the Template Repo
+## Initialization
 
-Clone this template repository by running the following command in your terminal:
+1. Aplós provides a convenient template that you can use to kickstart your project. To begin, click on the following link to initialize a repository with the Aplós template: Initialize Aplós Template.
 
-```bash
-git clone https://github.com/*your_username*/aplos
-```
+2. After initializing, you have two options:
+   - Clone the repository to edit the project locally: `git clone https://github.com/*your_username*/aplos`
+   - Use GitHub Codespaces to edit the project online: [GitHub Codespaces](https://codespace.new)
 
-<details>
-<summary>GitHub Codespaces</summary>
+   Make sure to replace *your_username* with your GitHub username.
 
-**Alternatively**, you have the option to edit your project using GitHub Codespaces. Simply open the following link in your preferred web browser:
+3. Navigate to the `/pages/` and `/.vitepress/` folders. Locate the config.mts file for further customization.
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=737827959)
-</details>
+## Package
 
-## Install Dependencies and Start Development Server
+Aplós is now available as an NPM package, making it easier to install and use. To get started, follow these steps:
 
-Once you've cloned the repository (or opened it in Codespaces), follow these steps:
-
-1. Install Dependencies:
+1. Install the Aplós package by running the following command in your terminal:
 
 ```bash
-npm install
+npm install aplos
 ```
 
-2. Start Development Server:
-
-```bash
-npm run pages:dev
-```
-
-This will start the development server and open your project in your default browser.
-
-## Configuration
-
-The Aplós Template uses a configuration file `(pages/.vitepress/config.mts)` to control various aspects of the website, such as theme, navigation, and SEO.
-
-You can edit this file to customize your website. Here's an example snippet showing some configuration options:
+2. After installing the package, in your project directory, create a folder named `theme` inside the `.vitepress` folder. Then, create a `index.ts` file inside the `theme` folder. This file will contain the following code:
 
 ```ts
-export default defineConfig({
-  lang: "en-US",
-  title: "Aplós Template",
-  description:
-    "This is a cool template for vitepress, it has a lot of features, and it's easy to use",
+import Aplos from "aplos/Layout.vue";
+import type { Theme } from "vitepress";
+import "aplos";
 
-  lastUpdated: true,
-  cleanUrls: true,
+export default {
+  Layout: Aplos,
+} satisfies Theme;
+```
 
-  themeConfig: {
-    // Main Theme
-    author: "You", // Your name
-    nav: {
-      // Navigation
-      links: [
-        { text: "Guide", link: "https://aplos.gxbs.me/guide/" },
-        { text: "Demo", link: "/demo" },
-        // To add more links, just add more objects to the array, with the text and link like so:
-        // { text: "Text (The text for the link)", link: "Link" },
-      ],
-      git: "https://github.com/GabsEdits/aplos-template", // Link to the source code of your site
-    },
-    footer: {
-      // To disable any of these, just set them to false, to enable them, set them to true
-      copyright: true,
-      poweredBy: true,
+> If you also want to add aditional styles, you can create a CSS/SCSS file inside the `theme` folder and import it in the `index.ts` file.
 
-      // To change the text of any of these, just change the text in the quotes, if you want to disable it entirely, set show to false
-      madeby: {
-        show: true,
-        name: "You",
-        link: "#",
-      },
-    },
-  },
-  head: [
-    // The head of the page, this is where you put your meta tags
-    // Add what ever you want
-  ],
-  sitemap: {
-    // The sitemap, for SEO
-    hostname: "https://template.aplos.gxbs.me", // The hostname (domain) of your site
+> [!WARNING]
+> Currently, I recommend to use PNPM if you want to make use of the Blog List Layout, as it's not working with NPM.
+
+### With Blog or Without Blog
+
+Aplós offers two versions: one with a blog and one without. To choose the version that suits your needs, follow these steps:
+
+1. Navigate to the `index.ts` file inside `/.vitepress/theme/` folder that we created earlier, after that change the import of the `Layout.vue` file to either `Layout.vue` or `no-blog/Layout.vue`.
+
+That will disable all the blog related layouts.
+
+#### With Blog
+
+If you want to use the blog, you can follow the steps below:
+
+1. Create a file named `posts.data.ts` inside the `/.vitepress/theme/` folder.
+2. Add the following code to the `posts.data.ts` file:
+
+```ts{12}
+import { createContentLoader } from "vitepress";
+
+interface Post {
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+declare const data: Post[];
+export { data };
+
+export default createContentLoader("blog/posts/*.md", {
+  excerpt: true,
+  transform(raw): Post[] {
+    return raw
+      .map(({ frontmatter }) => ({
+        title: frontmatter.title,
+        description: frontmatter.description,
+        tags: frontmatter.tags,
+        date: formatDate(frontmatter.date),
+      }))
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   },
 });
+
+function formatDate(raw: string): string {
+  const date = new Date(raw);
+  date.setUTCHours(12);
+  return date.toLocaleDateString("en-GB", {
+    year: "numeric",
+    month: "long",
+    day: "2-digit",
+  });
+}
 ```
 
-> [!NOTE]
-> Make sure to replace "You" with your actual name in the `author` field.
+2. After adding the script, you can change where your posts are located by changing the path in the `posts.data.ts` file on the highlighted line.
 
-## Colors
+3. If you want a page with a list of all your blog posts, you can create a file named however you want and add the following at the start of the file:
 
-You can change the accent color of your website by editing the `pages/.vitepress/custom.scss` file.\
-The file should look something like this:
-
-```scss
-$color-accent: #9eb036;
+```yaml
+---
+layout: blog-list
+---
 ```
 
-Change the value of `$color-accent` to your desired color code.
+4. Enjoy your blog! (Make sure you read more about setting up the blog in the [Blog](#blog) section)
 
-## Creating New Pages
+Replace `!!YOUR_COLOR_HEX!!` with your desired color hex code.
 
-New pages can be created inside the `pages` folder. To add a new link to the navigation bar, edit the `nav` section in the `config.mts` file following the existing format.
+You can also customize any other style of the project under the `$color-accent` variable.
+
+## Customizing Configuration
+
+You can edit the `config.mts` file to tailor the template to your needs. **I've made an page that explains how to do that [here](https://aplos.gxbs.me/guide/edit-configuration).**
+
+## Start Writing!
+
+With the configuration set up, you can now start creating and editing your files. Utilize the `pages` folder to add new pages and [customize the project](https://aplos.gxbs.me/guide/edit-configuration) to suit your preferences.
 
 ## Deployment
 
