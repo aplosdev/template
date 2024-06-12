@@ -8,7 +8,7 @@
     "aplos": "^2.0.2"
   },
   "devDependencies": {
-    "sass": "^1.77.4",
+    "sass": "^1.77.5",
     "vitepress": "^1.2.3"
   }
 }
