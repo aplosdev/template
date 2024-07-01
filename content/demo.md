@@ -85,7 +85,18 @@ We also have lines.
 
 ---
 
-## Information boxes
+And we can have tables:
+
+| Syntax       | Description |
+| ------------ | ----------- |
+| Header       | Title       |
+| Paragraph    | Text        |
+| Something    | And wow     |
+| I don't know | And huh     |
+
+---
+
+## Information Boxes
 
 Aplus has various types of information boxes.
 
@@ -106,21 +117,20 @@ The message you want to share
 ### Input
 
 ```md
-::: info
-This is an info box.
-:::
+> [!INFO]
+> This is an info box.
 
-::: tip
-This is a tip.
-:::
+> [!TIP]
+> This is a tip.
 
-::: warning
-This is a warning.
-:::
+> [!WARNING]
+> This is a warning.
 
-::: danger
-This is a dangerous warning.
-:::
+> [!DANGER]
+> This is a dangerous warning.
+
+> [!NOTE]
+> This is a note.
 
 ::: details
 This is a details block.
@@ -129,52 +139,26 @@ This is a details block.
 
 ### Output
 
-::: info
-This is an info box.
-:::
+> [!INFO] Info
+> This is an info box.
 
-::: tip
-This is a tip.
-:::
+> [!TIP] Tip
+> This is a tip.
 
-::: warning
-This is a warning.
-:::
+> [!WARNING] Warning
+> This is a warning.
 
-::: danger
-This is a dangerous warning.
-:::
+> [!DANGER] Danger
+> This is a dangerous warning.
+
+> [!NOTE] Note
+> This is a note.
 
 ::: details
 This is a details block.
 :::
 
-<kbd>⌘ Super</kbd> + <kbd>Space</kbd>
-
-Use this when something is <mark>really important</mark>
-
-## Table
-
-| Syntax       | Description |
-| ------------ | ----------- |
-| Header       | Title       |
-| Paragraph    | Text        |
-| Something    | And wow     |
-| I don't know | And huh     |
-
-## Small Text
-
-You can add small text by using the `<small>` tag.
-
-### Input
-
-```html
-<small>Something Small</small>
-```
-
-### Output
-
-<small>Something Small</small>
+## Other Elements
 
 ## Time
 
@@ -204,7 +188,19 @@ You also can have an animation to the time like this one: <time>**11:00**</time>
 
 <time>**11:00**</time>
 
-## Other Elements
+## Small Text
+
+You can add small text by using the `<small>` tag.
+
+### Input
+
+```html
+<small>Something Small</small>
+```
+
+### Output
+
+<small>Something Small</small>
 
 ### Progress Bar
 
@@ -220,7 +216,7 @@ You can add a progress bar by using the `<progress>` tag:
 
 <progress value="50" max="100"></progress>
 
-### Samp
+### Sample Output (`<samp>`)
 
 You can add a sample output by using the `<samp>` tag:
 
@@ -248,7 +244,7 @@ You can add a legend by using the `<legend>` tag:
 
 <legend>Legend</legend>
 
-### Q
+### Inline Quote (`<q>`)
 
 You can add an inline quote by using the `<q>` tag:
 
@@ -262,7 +258,7 @@ You can add an inline quote by using the `<q>` tag:
 
 <q>Inline Quote</q>
 
-### U
+### Grammar Mistakes (`<u>`)
 
 You can add a text that tries to replicate grammar mistakes by using the `<u>` tag:
 
@@ -276,28 +272,61 @@ You can add a text that tries to replicate grammar mistakes by using the `<u>` t
 
 <u>Trying to replicate grammar mistakes</u>
 
-### Del & Ins
+### Deleted Text (`<del>`) & Inserted Text (`<ins>`)
 
 You can add deleted text by using the `<del>` tag:
 
 #### Input
 
 ```html
-<del>Deleted Text</del>
+<del>Deleted Text</del> <ins>Inserted Text</ins>
 ```
 
 #### Output
 
-<del>Deleted Text</del>
+<del>Deleted Text</del> <ins>Inserted Text</ins>
 
-You can add inserted text by using the `<ins>` tag:
+### Keyboard Input (`<kbd>`)
+
+You can add keyboard input by using the `<kbd>` tag:
 
 #### Input
 
 ```html
-<ins>Inserted Text</ins>
+<kbd>⌘ Super</kbd> + <kbd>Space</kbd>
 ```
 
 #### Output
 
-<ins>Inserted Text</ins>
+<kbd>⌘ Super</kbd> + <kbd>Space</kbd>
+
+### Marked Text (`<mark>`)
+
+You can add marked text by using the `<mark>` tag:
+
+#### Input
+
+```html
+<mark>Marked Text</mark>
+```
+
+#### Output
+
+<mark>Marked Text</mark>
+
+![Photo of mountain range under clear sky](https://images.unsplash.com/photo-1501082183835-b7b33db89c3f?q=80&w=2920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D#full)
+
+<figcaption>Photo of mountain range under clear sky</figcaption>
+
+### Check Box (`[ ]`)
+
+> [!NOTE] Note
+> This will only work if you have the markdown-it-checkbox plugin enabled. It will come by deafult with Aplós in `v2.2.0`.
+
+You can add a check box by using the `[ ]` tag:
+
+- [ ] Check Box
+
+- [x] Checked Box
+
+- [ ] Unchecked Box
