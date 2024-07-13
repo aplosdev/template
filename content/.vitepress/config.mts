@@ -1,5 +1,7 @@
 import { defineConfig } from "vitepress";
 
+const accent = "#9eb036"; // Change this to your accent color
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: "en-US",
@@ -12,9 +14,6 @@ export default defineConfig({
 
   themeConfig: { // Main Theme Config
     author: "Your Name", // Change this to your name
-    colorScheme: {
-      accent: "#c1b134", // Change this to your accent color (Doesn't work currently, will be fixed in the future. For now, just change the color in the custom.scss file)
-    },
     nav: {
       links: [
         { text: "Guide", link: "https://aplos.gxbs.me/guide/" },
@@ -42,7 +41,7 @@ export default defineConfig({
   head: [
     ["meta", { name: "author", content: "Your Name" }], // Change this to your name
     ["link", { rel: "icon", href: "/favicon.ico" }],
-    ["meta", { name: "theme-color", content: "#ff3e00" }], // Your theme color
+    ["meta", { name: "theme-color", content: accent }], // Your theme color
     ["meta", { name: "og:type", content: "website" }],
     ["meta", { name: "og:locale", content: "en" }],
     ["meta", { name: "og:site_name", content: "Template" }], // Change this to your site name
@@ -79,7 +78,7 @@ export default defineConfig({
       preprocessorOptions: {
         scss: {
           additionalData: `
-          $color-accent: #9eb036;
+          $color-accent: ${accent};
           `,
         },
       },
