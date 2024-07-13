@@ -22,7 +22,7 @@ export default defineConfig({
         // To add more links, just add more objects to the array, with the text and link like so:
         // { text: "Text (The text for the link)", link: "Link" },
       ],
-      git: "https://github.com/GabsEdits/aplos-template", // Link to the source code of your site, if your site isn't open source, you can remove this
+      git: "https://github.com/aplosdev/template", // Link to the source code of your site, if your site isn't open source, you can remove this
     },
     footer: {
       // To disable any of these, just set them to false, to enable them, set them to true
@@ -33,19 +33,12 @@ export default defineConfig({
       madeby: {
         show: true,
         name: "Your Name",
-        link: "https://yourwebsite.com",
+        link: "https://example.org/",
       },
     },
   },
 
-  markdown: {
-    container: {
-      warningLabel: "⚠ Warning",
-      tipLabel: "Tip",
-      dangerLabel: "⚠ Danger",
-      infoLabel: "Info",
-    },
-  },
+
   head: [
     ["meta", { name: "author", content: "Your Name" }], // Change this to your name
     ["link", { rel: "icon", href: "/favicon.ico" }],
@@ -57,7 +50,7 @@ export default defineConfig({
       "meta",
       {
         name: "og:image",
-        content: "https://aplos.gxbs.me/images/aplos-banner.jpg", // Change this to your image
+        content: "https://aplos.gxbs.me/images/banner.jpg", // Change this to your image
       },
     ],
     ["meta", { name: "twitter:card", content: "summary_large_image" }],
@@ -65,7 +58,7 @@ export default defineConfig({
       "meta",
       {
         name: "twitter:image",
-        content: "https://aplos.gxbs.me/images/aplos-banner.jpg", // Change this to your image
+        content: "https://aplos.gxbs.me/images/banner.jpg", // Change this to your image
       },
     ],
     ["meta", { name: "twitter:title", content: "Aplós Template" }], // Change this to your title
